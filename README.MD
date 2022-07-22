@@ -18,7 +18,7 @@ Prior to running, you need to setup the environment files for both client and se
 
 **For The Server -- You Will Need:**
 
-- Private key that has ETH on the provided ETH_RPC
+- Private key that has ETH on the provided ETH_RPC ( Probably owner.toml's PrivK )
 - Port Number API should run on*
 - Ethereum RPC Endpoint*
 - The Factory Contract Address*
