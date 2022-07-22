@@ -1,0 +1,3 @@
+[build.environment]
+  REACT_APP_ALICENET_RPC_ENDPOINT="https://mad.catmad.duckdns.org"
+  REACT_APP_FAUCET_API_URL="https://fund.catmad.duckdns.org"

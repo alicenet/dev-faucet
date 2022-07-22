@@ -1,0 +1,47 @@
+{
+    "name": "backup-faucet-ui",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@semantic-ui-react/css-patch": "1.0.0",
+        "@testing-library/jest-dom": "^5.16.4",
+        "@testing-library/react": "^12.1.4",
+        "@testing-library/user-event": "^13.5.0",
+        "autoprefixer": "^10.4.4",
+        "axios": "^0.26.1",
+        "postcss": "^8.4.12",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "react-scripts": "5.0.0",
+        "semantic-ui-css": "^2.4.1",
+        "semantic-ui-react": "^2.1.2",
+        "tailwindcss": "^3.0.24",
+        "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "postinstall": "semantic-ui-css-patch",
+        "i": "rm -rf node_modules yarn.lock package-lock.json; yarn"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
