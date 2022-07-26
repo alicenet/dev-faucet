@@ -2,7 +2,7 @@
 
 This app is only available from AliceNet on the staging environment.
 
-- **PR's to main will be built and deployed at https://faucet.edge.staging.alice.net**
+- **PR's to main will be built and deployed at https://faucet.staging.alice.net**
 
 # Requirements
 
