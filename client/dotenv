@@ -1,2 +1,2 @@
-REACT_APP_ALICENET_RPC_ENDPOINT="https://api.alicenet.duckdns.org"
-REACT_APP_FAUCET_API_URL="https://fund.api.alicenet.duckdns.org"
+REACT_APP_ALICENET_RPC_ENDPOINT="https://edge.staging.alice.net/v1/"
+REACT_APP_FAUCET_API_URL="https://fund.edge.staging.alice.net"

@@ -67,7 +67,7 @@ class FaucetHandler {
             console.log(ex)
             // Clear request from list and return error
             this.clearAddressFromRequests(address, isBN);
-            return ex.message;
+            return { error: ex.message };
         }
     }
 

@@ -1,4 +1,4 @@
 API_PORT_NUMBER=7850
-ETH_RPC=https://eth.alicenet.duckdns.org
+ETH_RPC=https://eth.staging.alice.net
 FUNDER_PRIVATE_KEY=
 FACTORY_CONTRACT_ADDRESS=0x0b1F9c2b7bED6Db83295c7B5158E3806d67eC5bc

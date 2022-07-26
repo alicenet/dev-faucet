@@ -11,7 +11,7 @@ function App() {
      * @property {Boolean} success - Was the API Call a success? ( No errors in res.data, etc ) 
      */
     let [componentState, setComponentState] = React.useState({
-        address: "0xc113189ad606c8dd46a783a7915483d7e9461c9a",
+        address: "",
         error: "",
         loading: "",
         success: ""
