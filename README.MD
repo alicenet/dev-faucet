@@ -1,8 +1,9 @@
 # Important
 
-This app is only available from AliceNet on the staging environment.
+The client app is only available from AliceNet on the staging environment.
 
-- **PR's to main will be built and deployed at https://faucet.staging.alice.net**
+- **PR's to main's /client folder will be built and deployed at https://faucet.staging.alice.net**
+- Server code must be updated manually and is not included in a CI/CD pipeline
 
 # Requirements
 
