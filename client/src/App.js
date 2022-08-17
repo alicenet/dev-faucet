@@ -14,9 +14,14 @@ function App() {
         address: "",
         error: "",
         loading: "",
-        success: ""
+        success: "",
+        isBN: false,
     });
     const updateComponentState = (stateUpdates) => setComponentState(s => ({ ...s, ...stateUpdates }));
+
+    const toggleBN = (checkEvent, data) => {
+        updateComponentState({isBN: data.checked})
+    }
 
     /**
      * Submit an api request for funding with current local address state
@@ -26,7 +31,7 @@ function App() {
             return updateComponentState({ error: "An address is required" })
         }
         updateComponentState({ loading: true, success: "", error: "" });
-        let apiRes = await faucetRequest(componentState.address);
+        let apiRes = await faucetRequest(componentState.address, componentState.isBN);
         if (apiRes.error) {
             updateComponentState({ error: apiRes.error, success: false });
         } else {
@@ -67,6 +72,11 @@ function App() {
                                 loading: !!componentState.loading
                             }}
                             onChange={e => updateComponentState({ address: e.target.value })}
+                        />
+                        <Form.Checkbox
+                            label="Is BN Address?"
+                            checked={componentState.isBN}
+                            onChange={(e,data) => toggleBN(e, data)}
                         />
                     </Form>
 

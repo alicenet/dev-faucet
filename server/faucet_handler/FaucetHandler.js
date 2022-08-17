@@ -64,10 +64,11 @@ class FaucetHandler {
             return tx.hash
         }
         catch (ex) {
-            console.log(ex)
+            let errMsg = ex.message + `with address ${address} and isBN ${isBN}`; 
+            console.log(errMsg)
             // Clear request from list and return error
             this.clearAddressFromRequests(address, isBN);
-            return { error: ex.message };
+            return { error: errMsg};
         }
     }
 

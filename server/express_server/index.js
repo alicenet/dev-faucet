@@ -5,6 +5,7 @@ module.exports.startExpressServer = async () => {
 
     const app = express();
     app.use(cors()); // Allows all calls *
+    app.use(express.json())
 
     // Create endpoints
     const endpointNames = await fs.readdir(__dirname + "/endpoints");
