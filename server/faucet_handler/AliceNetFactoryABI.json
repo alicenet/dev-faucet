@@ -3,12 +3,49 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "selfAddr_",
+                "name": "legacyToken_",
                 "type": "address"
             }
         ],
         "stateMutability": "nonpayable",
         "type": "constructor"
+    },
+    {
+        "inputs": [],
+        "name": "CodeSizeZero",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "current",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "expected",
+                "type": "address"
+            }
+        ],
+        "name": "IncorrectProxyImplementation",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "salt",
+                "type": "bytes32"
+            }
+        ],
+        "name": "SaltAlreadyInUse",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "Unauthorized",
+        "type": "error"
     },
     {
         "anonymous": false,
@@ -82,8 +119,51 @@
         "type": "event"
     },
     {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "bytes32",
+                "name": "salt",
+                "type": "bytes32"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "proxyAddr",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "newlogicAddr",
+                "type": "address"
+            }
+        ],
+        "name": "UpgradedProxy",
+        "type": "event"
+    },
+    {
         "stateMutability": "nonpayable",
         "type": "fallback"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "salt_",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "address",
+                "name": "newContractAddress_",
+                "type": "address"
+            }
+        ],
+        "name": "addNewExternalContract",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
     },
     {
         "inputs": [
@@ -104,7 +184,13 @@
             }
         ],
         "name": "callAny",
-        "outputs": [],
+        "outputs": [
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
         "stateMutability": "payable",
         "type": "function"
     },
@@ -116,37 +202,6 @@
                 "internalType": "bytes32[]",
                 "name": "contracts_",
                 "type": "bytes32[]"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "target_",
-                "type": "address"
-            },
-            {
-                "internalType": "bytes",
-                "name": "cdata_",
-                "type": "bytes"
-            }
-        ],
-        "name": "delegateCallAny",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "delegator",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "delegator_",
-                "type": "address"
             }
         ],
         "stateMutability": "view",
@@ -203,6 +258,30 @@
     {
         "inputs": [
             {
+                "internalType": "bytes",
+                "name": "deployCode_",
+                "type": "bytes"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "salt_",
+                "type": "bytes32"
+            }
+        ],
+        "name": "deployCreateAndRegister",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "contractAddr",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "bytes32",
                 "name": "salt_",
                 "type": "bytes32"
@@ -220,46 +299,29 @@
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "bytes32",
-                "name": "salt_",
-                "type": "bytes32"
-            },
-            {
-                "internalType": "bytes",
-                "name": "initCallData_",
-                "type": "bytes"
-            }
-        ],
-        "name": "deployStatic",
+        "inputs": [],
+        "name": "getALCAAddress",
         "outputs": [
             {
                 "internalType": "address",
-                "name": "contractAddr",
+                "name": "",
                 "type": "address"
             }
         ],
-        "stateMutability": "nonpayable",
+        "stateMutability": "view",
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "bytes",
-                "name": "deployCode_",
-                "type": "bytes"
-            }
-        ],
-        "name": "deployTemplate",
+        "inputs": [],
+        "name": "getALCACreationCodeHash",
         "outputs": [
             {
-                "internalType": "address",
-                "name": "contractAddr",
-                "type": "address"
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
             }
         ],
-        "stateMutability": "nonpayable",
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -316,6 +378,25 @@
         "inputs": [
             {
                 "internalType": "address",
+                "name": "proxyAddress_",
+                "type": "address"
+            }
+        ],
+        "name": "getProxyImplementation",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
                 "name": "contract_",
                 "type": "address"
             },
@@ -342,7 +423,7 @@
         "outputs": [
             {
                 "internalType": "address",
-                "name": "addr",
+                "name": "",
                 "type": "address"
             }
         ],
@@ -352,13 +433,36 @@
     {
         "inputs": [
             {
-                "internalType": "bytes[]",
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "target",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "value",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "data",
+                        "type": "bytes"
+                    }
+                ],
+                "internalType": "struct AliceNetFactoryBase.MultiCallArgs[]",
                 "name": "cdata_",
-                "type": "bytes[]"
+                "type": "tuple[]"
             }
         ],
         "name": "multiCall",
-        "outputs": [],
+        "outputs": [
+            {
+                "internalType": "bytes[]",
+                "name": "",
+                "type": "bytes[]"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -373,32 +477,6 @@
             }
         ],
         "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "newDelegator_",
-                "type": "address"
-            }
-        ],
-        "name": "setDelegator",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "newImplementationAddress_",
-                "type": "address"
-            }
-        ],
-        "name": "setImplementation",
-        "outputs": [],
-        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
