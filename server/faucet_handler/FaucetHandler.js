@@ -29,7 +29,7 @@ class FaucetHandler {
             let fundingWallet = new ethers.Wallet(pk, provider)
             // init factory contract and get be token address
             let factoryContract = new ethers.Contract(process.env.FACTORY_CONTRACT_ADDRESS, factoryABI, provider)
-            let bTokenAddress = await factoryContract.lookup(ethers.utils.formatBytes32String("BToken"));
+            let bTokenAddress = await factoryContract.lookup(ethers.utils.formatBytes32String("ALCB"));
             // provide contract interface
             let iface = new ethers.utils.Interface([
                 "function virtualMintDeposit(uint8 accountType_,address to_,uint256 amount_)",
